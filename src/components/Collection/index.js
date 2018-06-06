@@ -9,11 +9,11 @@ let Collection = (props) => (
             <a>更多</a>
         </div>
         <ul>
-            <Cell title="作品名字" score={10}/>
-            <Cell title="作品名字" score={9.2}/>
-            <Cell title="作品名字" score={8.1}/>
-            <Cell title="作品名字" score={7.3}/>
-            <Cell title="作品名字" score={5.2}/>
+            {
+                props.data.map((item,index)=>(
+                    <Cell title={item.title} score={item.rating.average} image={item.images.small} key={index}/>
+                ))
+            }
         </ul>
     </section>
 );
