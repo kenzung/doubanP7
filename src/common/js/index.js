@@ -1,0 +1,1 @@
+export const api = 'http://api.douban.com';

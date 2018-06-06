@@ -1,0 +1,28 @@
+.hot-flow{
+    &-title{
+        padding: 0 20px;
+        font-weight: normal;
+    }
+    &-body{
+        padding: 15px;
+        overflow-x: auto;
+        white-space: nowrap;/*这个属性主要使文本内的换行无效，铺满不换行*/
+        > .line{/*这个是抄豆瓣官网的，在行内元素里插入一个块级元素可以起到换行的效果，太6了*/
+            display: block;
+            height: 1px;
+            width: 100%;
+            border: 0;
+            margin: 0;
+        }
+    }
+    &-item{
+        display: inline-block;
+        padding:20px;
+        margin: 0 0 8px 8px;
+        border:1px solid;
+        border-radius: 4px;
+        > a{
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@hotTapMargin : 20px;
+@hotTapItemMargin : 5px;
+
+.kz-hot-tap{
+    margin: @hotTapMargin @hotTapMargin @hotTapMargin @hotTapMargin - @hotTapItemMargin;
+    > li{
+        display:inline-block;
+        text-align: center;
+        height: 48px;
+        width: 50%;
+        font-size: 0;
+    }
+    &__item{
+        background: #f6f6f6;
+        margin-left: @hotTapItemMargin;
+        margin-bottom: @hotTapItemMargin;
+        > a{
+            display: block;
+            line-height: 20px;
+            padding:12px 0;
+            font-size: 14px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@fontColor:#42bd56;
+@border:1px solid @fontColor;
+.channel-item{
+    background: #effaf0;
+    border: @border;
+    display: inline-block;
+    border-radius: 15px;
+    font-size: 13px;
+    padding:5px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    &-inner{
+        color: @fontColor;
+        >span{
+            display: inline-block;
+            margin-left: 4px;
+            width: 8px;
+            height: 8px;
+            border-right: @border;
+            border-bottom: @border;
+            transform: rotate(-45deg);
+        }
+    }
+}

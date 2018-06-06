@@ -1,0 +1,23 @@
+body,div,span,p,ul,li,ol,a,nav,section,header,footer,i,h1,h2,h3,h4,h5,h6{
+    margin:0;
+    padding:0;
+    line-height: 1;
+}
+
+ul,ol,li{
+    list-style-type: none;
+}
+
+a{
+    color: #000000;
+    text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    text-decoration: none;
+}
+
+.btn{
+    display: inline-block;
+    border-radius: 4px;
+}

@@ -1,0 +1,36 @@
+.sort{
+   &-title{
+        margin-left: 12px;
+        margin-bottom: 12px;
+        font-weight: normal;
+   }
+   &-body{
+        margin-left: 12px; 
+        border-bottom:1px solid #eee; 
+   }
+   &-item{
+        display: inline-block;
+        box-sizing: border-box;
+        width: 50%;
+        line-height: 40px;
+        position: relative;
+        border-top: 1px solid #eee;
+        border-right: 1px solid #eee;
+        >a{
+            margin-left: 12px;
+            color:#42bd56;
+            >span{
+                display: inline-block;
+                border-bottom: 1px solid #ccc;
+                border-right: 1px solid #ccc;
+                transform: rotate(-45deg);
+                width: 8px;
+                height: 8px;
+                position: absolute;
+                right: 20px;
+                top:16px;
+            }
+        }
+        
+   }
+}

@@ -1,0 +1,66 @@
+.commentary{
+    &-left{
+        float: left;
+        >img{
+            display: block;
+            height: 36px;
+            width: 36px;
+            border-radius: 18px;
+            background: url(../../assets/avatar.jpg) no-repeat;
+            background-size: 36px 36px;
+        }
+    }
+    &-right{
+        margin-left: 36px;
+        padding-left: 10px;
+        padding-right: 10px;
+        &__top1{
+            font-size: 15px;
+            margin-top: 2px;
+            >span{
+                margin-right: 2px;
+            }
+        }
+        &__top2{
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 6px;
+        }
+        &__content{
+            margin:6px 10px 6px 0;
+            font-size: 15px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        &__bottom{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            >.right{
+                display: inline-flex;
+                >.point{
+                    margin-top: 3px;
+                    font-size: 14px;
+                    color: #aaa;
+                }
+            }
+        }
+    }
+}
+
+.cicon{
+    >svg{
+        width: 20px;
+        height: 20px;
+        display: block;
+    }
+    background-size: 20px 20px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    &-like{
+        margin-right: 3px;
+    }
+    &-more{
+        margin-right: 10px;
+    }
+}
