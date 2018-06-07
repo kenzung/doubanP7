@@ -11,7 +11,7 @@ let Collection = (props) => (
         <ul>
             {
                 props.data.map((item,index)=>(
-                    <Cell title={item.title} score={item.rating.average} image={item.images.small} key={index}/>
+                    <Cell cellItem={item} key={index}/>
                 ))
             }
         </ul>

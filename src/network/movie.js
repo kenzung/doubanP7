@@ -1,4 +1,5 @@
 import fetchJsonp from 'fetch-jsonp';
-import {api} from '../common/js';
-export const inTheatersMovie = fetchJsonp(`${api}/v2/movie/in_theaters?count=8`);
-export const commonSoonMovie = fetchJsonp(`${api}/v2/movie/coming_soon?count=8`);
+import {apiHttp} from '../common/js';
+export const inTheatersMovie = fetchJsonp(`${apiHttp}/v2/movie/in_theaters?count=8`);
+export const commonSoonMovie = fetchJsonp(`${apiHttp}/v2/movie/coming_soon?count=8`);
+export const top8 = fetchJsonp(`${apiHttp}/v2/movie/top250?count=8`);
