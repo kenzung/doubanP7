@@ -16,39 +16,12 @@ class Movie extends Component{
             topMovies : []
         }
     }
-    fetchInTheatersMovies(){
-        inTheatersMovie
-        .then((res)=>{
+    fetchMovie(getMovie,stateName){
+        getMovie.then((res)=>{
             return res.json();
         }).then((json)=>{
             this.setState({
-                inTheatersMovies : json.subjects
-            });
-        }).catch((error)=>{
-            console.log(error);
-        });
-    }
-
-    fetchNewMovies(){
-        commonSoonMovie
-        .then((res)=>{
-            return res.json();
-        }).then((json)=>{
-            this.setState({
-                newMovies : json.subjects
-            });
-        }).catch((error)=>{
-            console.log(error);
-        });
-    }
-
-    fetchTop8Movie(){
-        top8
-        .then((res)=>{
-            return res.json();
-        }).then((json)=>{
-            this.setState({
-                topMovies : json.subjects
+                [stateName] : json.subjects
             });
         }).catch((error)=>{
             console.log(error);
@@ -57,19 +30,19 @@ class Movie extends Component{
 
     loopAndCreateCellItem(arr){
         return arr.map((item,index)=>{
-            const {images,rating,title,id} = item;
+            const {images:{small:image},rating:{average:score},title,id} = item;
             return (
-                <Cell url={`#${id}`} image={images.small} title={title} key={index}>
-                    <CellRating score={rating.average}/>
+                <Cell url={`#${id}`} image={image} title={title} key={index}>
+                    <CellRating score={score}/>
                 </Cell>
             )
         })
     }
 
     componentDidMount() {
-        this.fetchInTheatersMovies();
-        this.fetchNewMovies();
-        this.fetchTop8Movie();
+        this.fetchMovie(inTheatersMovie,'inTheatersMovies');
+        this.fetchMovie(top8,'topMovies');
+        this.fetchMovie(commonSoonMovie,'newMovies');
     }
     render(){
         return (

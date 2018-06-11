@@ -15,26 +15,12 @@ class Book extends Component {
         }
     }
 
-    getFictionBooks(){
-        getFiction
-        .then((res)=>{
+    fetchBooks(getBook,stateName){
+        getBook.then((res)=>{
             return res.json();
         }).then((json)=>{
             this.setState({
-                fictionBook : json.books
-            });
-        }).catch((error)=>{
-            console.log(error);
-        });
-    }
-
-    getNonFictionBooks(){
-        getNonFiction
-        .then((res)=>{
-            return res.json();
-        }).then((json)=>{
-            this.setState({
-                nonFictionBook : json.books
+                [stateName] : json.books
             });
         }).catch((error)=>{
             console.log(error);
@@ -42,8 +28,8 @@ class Book extends Component {
     }
 
     componentDidMount(){
-        this.getFictionBooks();
-        this.getNonFictionBooks();
+        this.fetchBooks(getFiction,'fictionBook');
+        this.fetchBooks(getNonFiction,'nonFictionBook');
     }
 
     loopAndCreateCellItem(arr){
