@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import Collection from '../../components/Collection';
+import {CellRating,Cell} from '../../components/Collection/Cell';
 import Sort from '../../components/Sort';
-import HotFlow from '../../components/HotFlow'
+import HotFlow from '../../components/HotFlow';
 import './movie.less';
 import {movieSort,movieHotFlow} from '../../data/constData';
 import {inTheatersMovie,commonSoonMovie,top8} from '../../network/movie';
@@ -54,6 +55,17 @@ class Movie extends Component{
         });
     }
 
+    loopAndCreateCellItem(arr){
+        return arr.map((item,index)=>{
+            const {images,rating,title,id} = item;
+            return (
+                <Cell url={`#${id}`} image={images.small} title={title} key={index}>
+                    <CellRating score={rating.average}/>
+                </Cell>
+            )
+        })
+    }
+
     componentDidMount() {
         this.fetchInTheatersMovies();
         this.fetchNewMovies();
@@ -62,9 +74,21 @@ class Movie extends Component{
     render(){
         return (
             <section className="movie-content">
-                <Collection title="影院热映" data={this.state.inTheatersMovies}/>
-                <Collection title="经典电影" data={this.state.topMovies}/>
-                <Collection title="新片速递" data={this.state.newMovies}/>
+                <Collection title="影院热映">
+                    {
+                        this.loopAndCreateCellItem(this.state.inTheatersMovies)
+                    }
+                </Collection>
+                <Collection title="经典电影">
+                    {
+                        this.loopAndCreateCellItem(this.state.topMovies)
+                    }
+                </Collection>
+                <Collection title="新片速递">
+                    {
+                        this.loopAndCreateCellItem(this.state.newMovies)
+                    }
+                </Collection>
                 <HotFlow title="发现好电影" hotFLows={movieHotFlow}/>
                 <Sort sortItems={movieSort}/>
             </section>

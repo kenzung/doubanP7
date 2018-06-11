@@ -1,5 +1,4 @@
 import React from 'react';
-import Cell from './Cell'
 import './collection.less';
 
 let Collection = (props) => (
@@ -9,11 +8,7 @@ let Collection = (props) => (
             <a>更多</a>
         </div>
         <ul>
-            {
-                props.data.map((item,index)=>(
-                    <Cell cellItem={item} key={index}/>
-                ))
-            }
+            {props.children}
         </ul>
     </section>
 );

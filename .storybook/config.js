@@ -29,13 +29,13 @@ function loadStories() {
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('首页列表项', () => (<ArticleListItem />));
 
-    storiesOf('collection', module).addDecorator(story => (
-        <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
-    )).add('collection item(有分数10)', () => (<Cell score={10} title={'好看电影112312'}/>))
-        .add('collection item(有分数7.2)', () => (<Cell score={7.2} title={'好看电影112312'}/>))
-        .add('collection item(有分数5.8)', () => (<Cell score={5.8} title={'好看电影112312'}/>))
-        .add('collection item(无分数)', () => (<Cell score={0} title={'好看电影2'}/>))
-        .add('collection', () => (<Collection title={'热门电影'}/>));
+    // storiesOf('collection', module).addDecorator(story => (
+    //     <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+    // )).add('collection item(有分数10)', () => (<Cell score={10} title={'好看电影112312'}/>))
+    //     .add('collection item(有分数7.2)', () => (<Cell score={7.2} title={'好看电影112312'}/>))
+    //     .add('collection item(有分数5.8)', () => (<Cell score={5.8} title={'好看电影112312'}/>))
+    //     .add('collection item(无分数)', () => (<Cell score={0} title={'好看电影2'}/>))
+    //     .add('collection', () => (<Collection title={'热门电影'}/>));
 
 
     storiesOf('hot tab collection').addDecorator(story => (

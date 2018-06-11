@@ -3,19 +3,54 @@ import './cell.less';
 import {Link} from 'react-router-dom';
 import Rating from '../../Rating';
 
-let Cell = (props) => {
-    const style = {backgroundImage : `url(${props.cellItem.images.small})`}
+//cell的图片
+let CellImage = (props) =>{
+    const style = {backgroundImage : `url(${props.image})`}
     return (
-        <li className="item-cell">
-            <Link to="#">
-                <div className="item-cell-poster" style={style}></div>
-                <span className="item-cell-title">{props.cellItem.title}</span>
-                <div className="item-cell-bottom">
-                    <Rating score={props.cellItem.rating.average} showScore={true}/>
-                </div>
-            </Link>
-        </li>
+        <div className="item-cell-poster" style={style}></div>
     )
 };
 
-export default Cell;
+//cell title描述
+let CellTitle = (props) => (
+    <span className="item-cell-title">{props.title}</span>
+);
+
+//cell 底部控件
+let CellRating = (props) => (
+    <div className="item-cell-bottom">
+        <Rating score={props.score} showScore={true}/>
+    </div>
+);
+
+//cell 底部控件
+let CellText = (props) => {
+    const style = {color : props.color, fontSize: props.fontSize || 12}
+    return (
+        <div className="item-cell-bottom" style={style}>
+            {props.text}
+        </div>
+    )
+};
+
+//更加自定义的cell
+let CellFrame = (props) => (
+    <li className="item-cell">
+        <Link to={props.url}>
+            {props.children}
+        </Link>
+    </li>
+);
+
+//简化的cell
+let Cell = (props) => {
+    return (   
+        <CellFrame url={props.url}>
+            <CellImage image={props.image}/>
+            <CellTitle title={props.title}/>
+            {props.children}
+        </CellFrame>
+    )
+};
+
+export {CellImage,CellTitle,CellRating,CellText,Cell,CellFrame};
