@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../common/style/common.css';
 import './navigationBar.less';
 import {Link} from 'react-router-dom'
 

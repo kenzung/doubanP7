@@ -1,0 +1,19 @@
+@markColor:#ffb712;
+.mark{
+    display: flex;
+    margin:0 12px 12px 12px;
+    &-item{
+        display: block;
+        flex:1;
+        color:@markColor;
+        border:1px solid @markColor;
+        border-radius: 3px;
+        text-align: center;
+        line-height: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+    &-item:last-child{
+        margin-right: 0;
+    }
+}

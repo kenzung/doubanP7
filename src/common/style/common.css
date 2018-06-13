@@ -15,9 +15,23 @@ a{
 
 h1,h2,h3,h4,h5,h6{
     text-decoration: none;
+    color: #aaa;
+    margin-bottom:15px;
+    font-weight: normal;
+}
+
+h2{
+    font-size:15px;
 }
 
 .btn{
     display: inline-block;
     border-radius: 4px;
+}
+
+.content-body{
+    position: relative;
+    top: 48px;
+    max-width: 650px;
+    margin: 0 auto;
 }

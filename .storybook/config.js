@@ -11,10 +11,11 @@ import {movieHotFlow, movieSort} from '../src/data/constData.js';
 import Sort from '../src/components/Sort';
 import DownloadBar from '../src/components/DownloadBar';
 import Summary from '../src/components/Summary';
-import Channel from '../src/components/ChannelItem';
+import Channel from '../src/components/Channel';
 import '../src/common/style/common.css';
-import ChannelItem from '../src/components/ChannelItem';
+import ChannelItem from '../src/components/Channel/ChannelItem';
 import Commentary from '../src/components/Commentary';
+import Mark from '../src/components/Mark';
 
 function loadStories() {
     storiesOf('导航', module).addDecorator(story => (
@@ -38,27 +39,35 @@ function loadStories() {
     //     .add('collection', () => (<Collection title={'热门电影'}/>));
 
 
-    storiesOf('hot tab collection').addDecorator(story => (
+    storiesOf('hot tab collection', module).addDecorator(story => (
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('电影hot tab', ()=>(<HotFlow title="发现好电影" hotFLows={movieHotFlow}/>));
 
-    storiesOf('分类链接').addDecorator(story => (
+    storiesOf('分类链接', module).addDecorator(story => (
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('电影分类链接',()=>(<Sort sortItems={movieSort}/>));
 
-    storiesOf('下载引导导航').addDecorator(story => (
+    storiesOf('下载引导导航', module).addDecorator(story => (
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('downloadBar',()=>(<DownloadBar/>));
 
-    storiesOf('简介').add('电影简介',()=>(<Summary />));
+    storiesOf('简介', module).add('电影简介',()=>(<Summary />));
 
-    storiesOf('频道').addDecorator(story => (
+    let channelArr = ['热血','国产','经典动漫','热血','国产','经典动漫','热血','国产','经典动漫','热血','国产','经典动漫'];
+    storiesOf('频道', module).addDecorator(story => (
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
-    )).add('频道 小说',()=>(<ChannelItem title="小说"/>));
+    )).add('频道Item 小说',()=>(<ChannelItem title="小说"/>))
+    .add('频道 电影',()=>(<Channel channel={channelArr}/>));
 
-    storiesOf('评论').addDecorator(story => (
+    storiesOf('评论', module).addDecorator(story => (
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('评论 普通',()=>(<Commentary/>));
+
+    const marks = ['想看','看过'];
+    storiesOf('标记', module).addDecorator(story => (
+        <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+    )).add('标记',()=>(<Mark marks={marks}/>));
+
 }
 
 configure(loadStories, module);

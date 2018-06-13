@@ -28,8 +28,8 @@ class Book extends Component {
     }
 
     componentDidMount(){
-        this.fetchBooks(getFiction,'fictionBook');
-        this.fetchBooks(getNonFiction,'nonFictionBook');
+        this.fetchBooks(getFiction(),'fictionBook');
+        this.fetchBooks(getNonFiction(),'nonFictionBook');
     }
 
     loopAndCreateCellItem(arr){
@@ -45,7 +45,7 @@ class Book extends Component {
 
     render() {
         return (
-            <section className="book-content">
+            <section className="content-body">
                  <Collection title="最受关注图书|虚构类">
                     {
                         this.loopAndCreateCellItem(this.state.fictionBook)

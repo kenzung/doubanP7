@@ -3,16 +3,20 @@ import Rating from '../Rating';
 import './summary.less';
 
 export default class Summary extends Component {
+    //组装简介
+    assembleIntroduction(){
+        
+    }
     render() {
         return (
             <section className="summary">
                 <h1>这个是标题</h1>
                 <div className="summary-info">
                     <div className="summary-info__right">
-                        <img class="" alt="测试" />
+                        <img alt="测试" />
                     </div>
                     <div className="summary-info__left">
-                        <div class="title">
+                        <div className="title">
                             <Rating score={8.7} />
                             <span className="title-commentary">
                                 0人评价

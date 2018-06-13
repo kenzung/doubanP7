@@ -32,7 +32,7 @@ class Movie extends Component{
         return arr.map((item,index)=>{
             const {images:{small:image},rating:{average:score},title,id} = item;
             return (
-                <Cell url={`#${id}`} image={image} title={title} key={index}>
+                <Cell url={`movie/${id}`} image={image} title={title} key={index}>
                     <CellRating score={score}/>
                 </Cell>
             )
@@ -40,13 +40,13 @@ class Movie extends Component{
     }
 
     componentDidMount() {
-        this.fetchMovie(inTheatersMovie,'inTheatersMovies');
-        this.fetchMovie(top8,'topMovies');
-        this.fetchMovie(commonSoonMovie,'newMovies');
+        this.fetchMovie(inTheatersMovie(),'inTheatersMovies');
+        this.fetchMovie(top8(),'topMovies');
+        this.fetchMovie(commonSoonMovie(),'newMovies');
     }
     render(){
         return (
-            <section className="movie-content">
+            <section className="content-body">
                 <Collection title="影院热映">
                     {
                         this.loopAndCreateCellItem(this.state.inTheatersMovies)

@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
-import ArticleListItem from './ArticleListItem'
-import '../../../../common/style/common.css'
-import './articleList.less'
+import ArticleListItem from './ArticleListItem';
+import './articleList.less';
 
 class ArticleList extends Component{
     render(){

@@ -1,21 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import NavigationBar from './components/NavigationBar';
 import Book from './pages/book';
 import Movie from './pages/movie';
 import Home from './pages/home';
-import './common/style/common.css'
+import MovieDetail from './pages/movie/MovieDetail';
+import NotFound from './pages/NotFound';
+import './common/style/common.css';
 
 let KZRoute = () => (
     <Router>
-        <div>
+        <React.Fragment>
             <NavigationBar />
-            <Route exact path="/" component={Home} />
-            <Route path="/movie" component={Movie} />
-            <Route path="/book" component={Book} />
-        </div>
+            <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/movie" component={Movie} />
+                <Route path="/book" component={Book} />
+                <Route path="/movie/:id" component={MovieDetail}/>
+                <Route component={NotFound}/>
+            </Switch>
+        </React.Fragment>
     </Router>
 );
 

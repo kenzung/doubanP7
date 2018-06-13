@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './hotTab.less';
-import '../../../../common/style/common.css'
 
 let HotTap = () => (
     <ul className="kz-hot-tap">
