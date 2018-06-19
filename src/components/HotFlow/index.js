@@ -14,9 +14,11 @@ let HotFlowCell = (props) => {
 
 let HotFlow = (props) => {
     const tabarr = props.hotFLows;
+    const titleStyle = {};
+    titleStyle.fontSize = props.titleSize && props.titleSize;
     return (
         <section className="hot-flow">
-            <h3 className="hot-flow-title">{props.title}</h3>
+            <h3 className="hot-flow-title" style={titleStyle}>{props.title}</h3>
             <ul className="hot-flow-body">
                 {tabarr.map((tabItem,index) =>(
                     <HotFlowCell color={tabItem.color} text={tabItem.text} key={tabItem.text + index}/>

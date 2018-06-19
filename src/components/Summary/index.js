@@ -1,31 +1,36 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Rating from '../Rating';
 import './summary.less';
 
-export default class Summary extends Component {
-    //组装简介
-    assembleIntroduction(){
-        
-    }
-    render() {
+let Summary = (props)=>{
+    if (Object.keys(props).length === 0) {
+        return (
+            <section className="summary"></section>
+        );
+    }else{
+        const { title, score, ratingsCount, img, intro} = props;
         return (
             <section className="summary">
-                <h1>这个是标题</h1>
+                <h1>{title}</h1>
                 <div className="summary-info">
                     <div className="summary-info__right">
-                        <img alt="测试" />
+                        <img alt={title} src={img} />
                     </div>
                     <div className="summary-info__left">
                         <div className="title">
-                            <Rating score={8.7} />
+                            <Rating score={score} />
                             <span className="title-commentary">
-                                0人评价
+                                {ratingsCount}人评价
                             </span>
                         </div>
-                        <p>84分钟 / 剧情 / 战争 / 科幻 / 安彦良和(导演) / 今西隆志(导演) / 池田秀一 / 潘惠美 / 三宅健太 / 2017-09-02(日本) 上映</p>
+                        <p>
+                            {intro}
+                        </p>
                     </div>
                 </div>
             </section>
         )
     }
 }
+
+export default Summary;

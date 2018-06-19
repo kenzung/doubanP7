@@ -1,10 +1,9 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Rating from '../Rating';
 import './commentary.less';
 import commentaryLikeSvg from '../../assets/ic_like_gray.svg';
 import commentaryMoreSvg from '../../assets/more.svg';
-let Commentary = (props) => (
+let Commentary = () => (
     <li className="commentary">
         <div className="commentary-left">
             <img/>

@@ -1,13 +1,11 @@
-import React,{Component} from 'react';
+import React from 'react';
+import './brief.less';
 
-class Brief extends Component{
-    
-    render(){
-        <section>
-            <h2>{props.title}</h2>
-            <p></p>
-        </section>
-    }
-};
+let Brief = ({title,brief})=>(
+    <section className="brief">
+        <h2>{`${title}的剧情简介`}</h2>
+        <p>{brief}</p>
+    </section>
+);
 
 export default Brief;

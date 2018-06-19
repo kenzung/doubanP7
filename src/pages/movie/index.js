@@ -47,17 +47,17 @@ class Movie extends Component{
     render(){
         return (
             <section className="content-body">
-                <Collection title="影院热映">
+                <Collection title="影院热映" showMore={true}>
                     {
                         this.loopAndCreateCellItem(this.state.inTheatersMovies)
                     }
                 </Collection>
-                <Collection title="经典电影">
+                <Collection title="经典电影" showMore={true}>
                     {
                         this.loopAndCreateCellItem(this.state.topMovies)
                     }
                 </Collection>
-                <Collection title="新片速递">
+                <Collection title="新片速递" showMore={true}>
                     {
                         this.loopAndCreateCellItem(this.state.newMovies)
                     }

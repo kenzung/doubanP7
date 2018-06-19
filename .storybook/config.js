@@ -16,6 +16,7 @@ import '../src/common/style/common.css';
 import ChannelItem from '../src/components/Channel/ChannelItem';
 import Commentary from '../src/components/Commentary';
 import Mark from '../src/components/Mark';
+import Brief from '../src/components/Brief';
 
 function loadStories() {
     storiesOf('导航', module).addDecorator(story => (
@@ -51,7 +52,7 @@ function loadStories() {
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('downloadBar',()=>(<DownloadBar/>));
 
-    storiesOf('简介', module).add('电影简介',()=>(<Summary />));
+    storiesOf('基本信息', module).add('电影简介',()=>(<Summary />));
 
     let channelArr = ['热血','国产','经典动漫','热血','国产','经典动漫','热血','国产','经典动漫','热血','国产','经典动漫'];
     storiesOf('频道', module).addDecorator(story => (
@@ -68,6 +69,8 @@ function loadStories() {
         <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
     )).add('标记',()=>(<Mark marks={marks}/>));
 
+    const brief = `原作コミックス「カードキャプターさくら クリアカード編」第3巻DVD付き特装版の発売が決定しました。2018年1月からのTVアニメ放送に先駆けて、「さくら」の新作アニメーションが「封印解除」――！PVも公開中です。「さくらカード編」と「クリアカード編」をつなぐストーリー、ぜひご期待ください。`;
+    storiesOf('简介',module).add('简介',()=>(<Brief title={'魔卡少女樱透明牌篇序章小樱与两只小熊'} brief={brief}/>))
 }
 
 configure(loadStories, module);

@@ -46,12 +46,12 @@ class Book extends Component {
     render() {
         return (
             <section className="content-body">
-                 <Collection title="最受关注图书|虚构类">
+                 <Collection title="最受关注图书|虚构类" showMore={true}>
                     {
                         this.loopAndCreateCellItem(this.state.fictionBook)
                     }
                  </Collection>
-                <Collection title="最受关注图书|非虚构类">
+                <Collection title="最受关注图书|非虚构类" showMore={true}>
                     {
                         this.loopAndCreateCellItem(this.state.nonFictionBook)
                     }

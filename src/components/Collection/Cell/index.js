@@ -25,9 +25,8 @@ let CellRating = (props) => (
 
 //cell 底部控件
 let CellText = (props) => {
-    const style = {color : props.color, fontSize: props.fontSize || 12}
     return (
-        <div className="item-cell-bottom" style={style}>
+        <div className="item-cell-bottom" style={props.style}>
             {props.text}
         </div>
     )

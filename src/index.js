@@ -16,9 +16,9 @@ let KZRoute = () => (
             <NavigationBar />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route path="/movie/:id" component={MovieDetail}/>
                 <Route path="/movie" component={Movie} />
                 <Route path="/book" component={Book} />
-                <Route path="/movie/:id" component={MovieDetail}/>
                 <Route component={NotFound}/>
             </Switch>
         </React.Fragment>
