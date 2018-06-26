@@ -11,6 +11,7 @@ import Commentary from '../../../components/Commentary';
 import {Cell,CellText} from '../../../components/Collection/Cell';
 import HotFlow from '../../../components/HotFlow';
 import {movieHotFlow} from '../../../data/constData';
+import Rating from '../../../components/Rating';
 import './movieDetail.less';
 
 export default class MovieDetail extends React.Component{
@@ -63,11 +64,16 @@ export default class MovieDetail extends React.Component{
                 <section className="content-body">
                     <DownloadBar/>
                     <Summary title={movie.title}
-                             score={movie.rating && movie.rating.average ? movie.rating.average : 0}
-                             ratingsCount={movie.ratings_count}
                              img={movie.images && movie.images.medium}
-                             intro={this.assembleIntroduction(movie)}
-                    />
+                             intro={this.assembleIntroduction(movie)}>
+                        {/* 复用summary，subtitle可以自定义 */}
+                        <div className="summary-subtitle">
+                            <Rating score={movie.rating && movie.rating.average ? movie.rating.average : 0} />
+                            <span className="summary-subtitle-commentary">
+                                {movie.ratings_count}人评价
+                            </span>
+                        </div>
+                    </Summary>
                     <Mark marks={this.marks}/>
                     <div className="use-app">
                         <Link to="#">在App上保存你的观影足迹</Link>
@@ -77,14 +83,14 @@ export default class MovieDetail extends React.Component{
                     <Collection title="影人">
                         {
                             movie.directors.length > 0 && movie.directors.map((director,index)=>(
-                                <Cell url="#" image={director.avatars.medium} title={director.name} key={index}>
+                                <Cell url={`celebrity/${director.id}`} image={director.avatars.medium} title={director.name} key={index}>
                                     <CellText text="导演" style={{fontSize:12,color:'#000'}}/>
                                 </Cell>
                             ))
                         }
                         {
                             movie.casts.length > 0 && movie.casts.map((cast,index)=>(
-                                <Cell url="#" image={cast.avatars.medium} title={cast.name} key={index}>
+                                <Cell url={`celebrity/${cast.id}`} image={cast.avatars.medium} title={cast.name} key={index}>
                                     <CellText text="演员" style={{fontSize:12,color:'#000'}}/>
                                 </Cell>
                             ))

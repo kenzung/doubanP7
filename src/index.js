@@ -8,6 +8,7 @@ import Movie from './pages/movie';
 import Home from './pages/home';
 import MovieDetail from './pages/movie/MovieDetail';
 import NotFound from './pages/NotFound';
+import ActorDetail from './pages/movie/ActorDetail';
 import './common/style/common.css';
 
 let KZRoute = () => (
@@ -16,6 +17,7 @@ let KZRoute = () => (
             <NavigationBar />
             <Switch>
                 <Route exact path="/" component={Home} />
+                <Route path="/movie/celebrity/:id" component={ActorDetail}/>
                 <Route path="/movie/:id" component={MovieDetail}/>
                 <Route path="/movie" component={Movie} />
                 <Route path="/book" component={Book} />

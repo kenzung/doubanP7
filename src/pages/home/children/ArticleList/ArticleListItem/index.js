@@ -1,23 +1,28 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './articleListItem.less'
-let ArticleListItem = () => (
-    <li>
-        <a className="kz-article-item">
-            <div className="kz-article-item__content">
-                <div>
-                    <h3>这是标题！</h3>
-                    <p>这是正文这是正文！这是正文这是正文！这是正文！这是正文！这是正文！这是正文这是正文！这是正文！这是正文！这是正文！这是正文！这是正文！这是正文！这是正文！</p>
+let ArticleListItem = ({activity}) => {
+    let newContent = activity.content.replace(/<.*?>/g, '');
+    newContent = newContent.slice(0,40);
+    return (
+        <li>
+            <Link to="#" className="kz-article-item">
+                <div className="kz-article-item__content">
+                    <div>
+                        <h3>{activity.title}</h3>
+                        <p>{newContent}</p>
+                    </div>
+                    <img alt="this is an nonono" src={activity.image}/>
                 </div>
-                <img alt="this is an nonono"/>
-            </div>
-            <div className="kz-article-item__footer">
-                <div className="footer__author">
-                    by&nbsp;<span>作者</span>
+                <div className="kz-article-item__footer">
+                    <div className="footer__author">
+                        by&nbsp;<span>{activity.owner.name}</span>
+                    </div>
+                    <span className="footer__label">{activity.subcategory_name && activity.subcategory_name}</span>
                 </div>
-                <span className="footer__label">这个是栏目</span>
-            </div>
-        </a>
-    </li>
-);
+            </Link>
+        </li>
+    )
+};
 
 export default ArticleListItem;

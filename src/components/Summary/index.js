@@ -8,7 +8,7 @@ let Summary = (props)=>{
             <section className="summary"></section>
         );
     }else{
-        const { title, score, ratingsCount, img, intro} = props;
+        const { title, img, intro} = props;
         return (
             <section className="summary">
                 <h1>{title}</h1>
@@ -17,12 +17,7 @@ let Summary = (props)=>{
                         <img alt={title} src={img} />
                     </div>
                     <div className="summary-info__left">
-                        <div className="title">
-                            <Rating score={score} />
-                            <span className="title-commentary">
-                                {ratingsCount}人评价
-                            </span>
-                        </div>
+                        {props.children}
                         <p>
                             {intro}
                         </p>
