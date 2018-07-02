@@ -45,4 +45,19 @@ export const bookSort = [
     '旅行',
     '奇幻',
     '经管'
-]
+];
+
+export const searchItems = [
+    {title:'电影',subTitle:'影院热映',titleColor:'#2384e8'},
+    {title:'同城',subTitle:'周末活动',titleColor:'#e6467e'},
+    {title:'阅读',subTitle:'电子书',titleColor:'#9f7860'},
+    {title:'广播',subTitle:'友邻动态',titleColor:'#e1644d'},
+    {title:'电视',subTitle:'正在热播',titleColor:'#7a6adb'},
+    {title:'小组',subTitle:'志趣相投',titleColor:'#2ab8cc'},
+    {title:'游戏',subTitle:'虚拟世界',titleColor:'#5774c5'},
+    {title:'FM',subTitle:'红心歌单',titleColor:'#40cfa9'},
+    {title:'图书',subTitle:'畅销排行',titleColor:'#9f7860'},
+    {title:'音乐',subTitle:'新碟榜',titleColor:'#f48f2e'},
+    {title:'应用',subTitle:'玩手机',titleColor:'#596cdd'},
+    {title:'市集',subTitle:'购买原创',titleColor:'#42bd56'}
+];

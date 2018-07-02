@@ -14,7 +14,7 @@ const NavigationBar = () => (
                 <li><Link to="/broadcast" className="tag tag-broadcast">广播</Link></li>
                 <li><Link to="/team" className="tag tag-team">小组</Link></li>
             </ul>
-            <span></span>
+            <Link to="/search"><i className="search-icon"></i></Link>
         </nav>
     </header>
 );

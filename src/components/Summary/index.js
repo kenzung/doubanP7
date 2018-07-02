@@ -1,5 +1,4 @@
 import React from 'react';
-import Rating from '../Rating';
 import './summary.less';
 
 let Summary = (props)=>{

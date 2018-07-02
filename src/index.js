@@ -9,6 +9,7 @@ import Home from './pages/home';
 import MovieDetail from './pages/movie/MovieDetail';
 import NotFound from './pages/NotFound';
 import ActorDetail from './pages/movie/ActorDetail';
+import Search from './pages/search';
 import './common/style/common.css';
 
 let KZRoute = () => (
@@ -21,6 +22,7 @@ let KZRoute = () => (
                 <Route path="/movie/:id" component={MovieDetail}/>
                 <Route path="/movie" component={Movie} />
                 <Route path="/book" component={Book} />
+                <Route path="/search" component={Search} />
                 <Route component={NotFound}/>
             </Switch>
         </React.Fragment>

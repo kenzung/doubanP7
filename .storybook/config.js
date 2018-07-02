@@ -17,6 +17,7 @@ import ChannelItem from '../src/components/Channel/ChannelItem';
 import Commentary from '../src/components/Commentary';
 import Mark from '../src/components/Mark';
 import Brief from '../src/components/Brief';
+import SearchItem from '../src/pages/search/SearchItem';
 
 function loadStories() {
     storiesOf('导航', module).addDecorator(story => (
@@ -71,6 +72,10 @@ function loadStories() {
 
     const brief = `原作コミックス「カードキャプターさくら クリアカード編」第3巻DVD付き特装版の発売が決定しました。2018年1月からのTVアニメ放送に先駆けて、「さくら」の新作アニメーションが「封印解除」――！PVも公開中です。「さくらカード編」と「クリアカード編」をつなぐストーリー、ぜひご期待ください。`;
     storiesOf('简介',module).add('简介',()=>(<Brief title={'魔卡少女樱透明牌篇序章小樱与两只小熊'} brief={brief}/>))
+
+    storiesOf('搜索页Item').addDecorator(story => (
+        <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+    )).add('电影搜索',()=>(<SearchItem title="电影" subTitle="影院热播" titleColor="#2384e8"/>));
 }
 
 configure(loadStories, module);

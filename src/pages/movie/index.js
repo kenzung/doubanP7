@@ -32,7 +32,7 @@ class Movie extends Component{
         return arr.map((item,index)=>{
             const {images:{small:image},rating:{average:score},title,id} = item;
             return (
-                <Cell url={`movie/${id}`} image={image} title={title} key={index}>
+                <Cell url={`/movie/${id}`} image={image} title={title} key={index}>
                     <CellRating score={score}/>
                 </Cell>
             )
