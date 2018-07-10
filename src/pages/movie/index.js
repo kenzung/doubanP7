@@ -4,8 +4,10 @@ import {CellRating,Cell} from '../../components/Collection/Cell';
 import Sort from '../../components/Sort';
 import HotFlow from '../../components/HotFlow';
 import './movie.less';
+import '../../components/NavigationBar';
 import {movieSort,movieHotFlow} from '../../data/constData';
 import {inTheatersMovie,commonSoonMovie,top8} from '../../network/movie';
+import NavigationBar from '../../components/NavigationBar';
 
 class Movie extends Component{
     constructor(props){
@@ -46,25 +48,28 @@ class Movie extends Component{
     }
     render(){
         return (
-            <section className="content-body">
-                <Collection title="影院热映" showMore={true}>
-                    {
-                        this.loopAndCreateCellItem(this.state.inTheatersMovies)
-                    }
-                </Collection>
-                <Collection title="经典电影" showMore={true}>
-                    {
-                        this.loopAndCreateCellItem(this.state.topMovies)
-                    }
-                </Collection>
-                <Collection title="新片速递" showMore={true}>
-                    {
-                        this.loopAndCreateCellItem(this.state.newMovies)
-                    }
-                </Collection>
-                <HotFlow title="发现好电影" hotFLows={movieHotFlow}/>
-                <Sort sortItems={movieSort}/>
-            </section>
+            <React.Fragment>
+                <NavigationBar />
+                <section className="content-body">
+                    <Collection title="影院热映" showMore={true}>
+                        {
+                            this.loopAndCreateCellItem(this.state.inTheatersMovies)
+                        }
+                    </Collection>
+                    <Collection title="经典电影" showMore={true}>
+                        {
+                            this.loopAndCreateCellItem(this.state.topMovies)
+                        }
+                    </Collection>
+                    <Collection title="新片速递" showMore={true}>
+                        {
+                            this.loopAndCreateCellItem(this.state.newMovies)
+                        }
+                    </Collection>
+                    <HotFlow title="发现好电影" hotFLows={movieHotFlow}/>
+                    <Sort sortItems={movieSort}/>
+                </section>
+            </React.Fragment>
         )
     }
 }

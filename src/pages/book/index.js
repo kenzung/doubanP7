@@ -4,6 +4,7 @@ import {CellRating,Cell} from '../../components/Collection/Cell';
 import {getFiction, getNonFiction} from '../../network/book';
 import Sort from '../../components/Sort';
 import {bookSort} from '../../data/constData';
+import NavigationBar from '../../components/NavigationBar';
 import './book.less';
 
 class Book extends Component {
@@ -45,19 +46,22 @@ class Book extends Component {
 
     render() {
         return (
-            <section className="content-body">
-                 <Collection title="最受关注图书|虚构类" showMore={true}>
-                    {
-                        this.loopAndCreateCellItem(this.state.fictionBook)
-                    }
-                 </Collection>
-                <Collection title="最受关注图书|非虚构类" showMore={true}>
-                    {
-                        this.loopAndCreateCellItem(this.state.nonFictionBook)
-                    }
-                </Collection> 
-                <Sort sortItems={bookSort}/>
-            </section>
+            <React.Fragment>
+                <NavigationBar />
+                <section className="content-body">
+                    <Collection title="最受关注图书|虚构类" showMore={true}>
+                        {
+                            this.loopAndCreateCellItem(this.state.fictionBook)
+                        }
+                    </Collection>
+                    <Collection title="最受关注图书|非虚构类" showMore={true}>
+                        {
+                            this.loopAndCreateCellItem(this.state.nonFictionBook)
+                        }
+                    </Collection> 
+                    <Sort sortItems={bookSort}/>
+                </section>
+            </React.Fragment>
         );
     }
 }

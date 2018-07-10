@@ -22,7 +22,7 @@ export default class Search extends React.Component {
     }
     render() {
         return (
-            <section className="content-body">
+            <section>
                 <div className="search-bar">
                     <Link to="/" className="close-btn">关闭</Link>
                     <div>

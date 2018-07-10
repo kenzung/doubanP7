@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
-import NavigationBar from './components/NavigationBar';
 import Book from './pages/book';
 import Movie from './pages/movie';
 import Home from './pages/home';
@@ -15,7 +14,6 @@ import './common/style/common.css';
 let KZRoute = () => (
     <Router>
         <React.Fragment>
-            <NavigationBar />
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/movie/celebrity/:id" component={ActorDetail}/>

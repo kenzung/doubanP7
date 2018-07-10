@@ -1,4 +1,5 @@
 import React from 'react';
+import NavigationBar from '../../../components/NavigationBar';
 import {actorInfo} from '../../../network/movie';
 import Summary from '../../../components/Summary';
 import Collection from '../../../components/Collection';
@@ -36,22 +37,25 @@ export default class ActorDetail extends React.Component {
         if(actorDetail){
             const actorName = actorDetail.name_en ? `${actorDetail.name} - ${actorDetail.name_en}`: actorDetail.name;
             return (
-                <section className="content-body">
-                    <Summary 
-                    title={actorName}
-                    img={actorDetail.avatars && actorDetail.avatars.medium}
-                    intro={this.assembleBrief(actorDetail)}>
-                    </Summary>
-                    <Collection title="个人作品">
-                        {
-                            actorDetail.works.map((movie,index)=>(
-                                <Cell url={`/movie/${movie.subject.id}`} image={movie.subject.images.small} title={movie.subject.title}>
-                                    <CellRating score={movie.subject.rating.average}/>
-                                </Cell>
-                            ))
-                        }
-                    </Collection>
-                </section>
+                <React.Fragment>
+                    <NavigationBar />
+                    <section className="content-body">
+                        <Summary 
+                        title={actorName}
+                        img={actorDetail.avatars && actorDetail.avatars.medium}
+                        intro={this.assembleBrief(actorDetail)}>
+                        </Summary>
+                        <Collection title="个人作品">
+                            {
+                                actorDetail.works.map((movie,index)=>(
+                                    <Cell url={`/movie/${movie.subject.id}`} image={movie.subject.images.small} title={movie.subject.title}>
+                                        <CellRating score={movie.subject.rating.average}/>
+                                    </Cell>
+                                ))
+                            }
+                        </Collection>
+                    </section>
+                </React.Fragment>
             );
         }else{
             return (
