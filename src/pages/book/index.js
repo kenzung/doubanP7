@@ -49,12 +49,12 @@ class Book extends Component {
             <React.Fragment>
                 <NavigationBar />
                 <section className="content-body">
-                    <Collection title="最受关注图书|虚构类" showMore={true}>
+                    <Collection title="最受关注图书|虚构类">
                         {
                             this.loopAndCreateCellItem(this.state.fictionBook)
                         }
                     </Collection>
-                    <Collection title="最受关注图书|非虚构类" showMore={true}>
+                    <Collection title="最受关注图书|非虚构类">
                         {
                             this.loopAndCreateCellItem(this.state.nonFictionBook)
                         }

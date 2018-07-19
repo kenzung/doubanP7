@@ -18,6 +18,7 @@ import './movieDetail.less';
 export default class MovieDetail extends React.Component{
     constructor(props){
         super(props);
+        this.movieId = this.props.match.params.id;
         this.state = {
             movie:null
         };
@@ -25,7 +26,7 @@ export default class MovieDetail extends React.Component{
     }
 
     getMovieDetail(){
-        movieDetail(this.props.match.params.id)
+        movieDetail(this.movieId)
         .then((res)=>(
             res.json()
         ))

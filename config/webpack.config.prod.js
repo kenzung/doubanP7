@@ -217,7 +217,17 @@ module.exports = {
           },
           {
             test: /\.svg$/,
-            loader:require.resolve('svg-inline-loader')
+            use: [
+              {
+                loader: "babel-loader"
+              },
+              {
+                loader: "react-svg-loader",
+                options: {
+                  jsx: true // true outputs JSX tags
+                }
+              }
+            ]
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.

@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import './collection.less';
 
 let Collection = (props) => (
     <section className="collection-section">
         <div className="collection-section__title">
             <h3>{props.title}</h3>
-            {props.showMore && <a>更多</a>}
+            {props.url && <Link to={props.url}>更多</Link>}
         </div>
         <ul>
             {props.children}

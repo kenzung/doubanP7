@@ -2,6 +2,7 @@ import React from 'react';
 import './cell.less';
 import {Link} from 'react-router-dom';
 import Rating from '../../Rating';
+import PropTypes from 'prop-types';
 
 //cell的图片
 let CellImage = (props) =>{
@@ -17,11 +18,15 @@ let CellTitle = (props) => (
 );
 
 //cell 底部控件
-let CellRating = (props) => (
+let CellRating = ({score}) => (
     <div className="item-cell-bottom">
-        <Rating score={props.score} showScore={true}/>
+        <Rating score={score} showScore={true}/>
     </div>
 );
+
+CellRating.propTypes = {
+    score : PropTypes.number
+}
 
 //cell 底部控件
 let CellText = (props) => {
@@ -51,5 +56,11 @@ let Cell = (props) => {
         </CellFrame>
     )
 };
+
+Cell.propTypes = {
+    url: PropTypes.string,
+    image: PropTypes.string,
+    title: PropTypes.string
+}
 
 export {CellImage,CellTitle,CellRating,CellText,Cell,CellFrame};

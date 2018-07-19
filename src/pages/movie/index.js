@@ -6,7 +6,7 @@ import HotFlow from '../../components/HotFlow';
 import './movie.less';
 import '../../components/NavigationBar';
 import {movieSort,movieHotFlow} from '../../data/constData';
-import {inTheatersMovie,commonSoonMovie,top8} from '../../network/movie';
+import {inTheatersMovies,comingSoonMovies,topMovies} from '../../network/movie';
 import NavigationBar from '../../components/NavigationBar';
 
 class Movie extends Component{
@@ -34,7 +34,7 @@ class Movie extends Component{
         return arr.map((item,index)=>{
             const {images:{small:image},rating:{average:score},title,id} = item;
             return (
-                <Cell url={`/movie/${id}`} image={image} title={title} key={index}>
+                <Cell url={`/movie/subject/${id}`} image={image} title={title} key={index}>
                     <CellRating score={score}/>
                 </Cell>
             )
@@ -42,26 +42,26 @@ class Movie extends Component{
     }
 
     componentDidMount() {
-        this.fetchMovie(inTheatersMovie(),'inTheatersMovies');
-        this.fetchMovie(top8(),'topMovies');
-        this.fetchMovie(commonSoonMovie(),'newMovies');
+        this.fetchMovie(inTheatersMovies(),'inTheatersMovies');
+        this.fetchMovie(topMovies(),'topMovies');
+        this.fetchMovie(comingSoonMovies(),'newMovies');
     }
     render(){
         return (
             <React.Fragment>
                 <NavigationBar />
                 <section className="content-body">
-                    <Collection title="影院热映" showMore={true}>
+                    <Collection title="影院热映"  url="/movie/inTheatersMovies">
                         {
                             this.loopAndCreateCellItem(this.state.inTheatersMovies)
                         }
                     </Collection>
-                    <Collection title="经典电影" showMore={true}>
+                    <Collection title="经典电影" url="/movie/topMovies">
                         {
                             this.loopAndCreateCellItem(this.state.topMovies)
                         }
                     </Collection>
-                    <Collection title="新片速递" showMore={true}>
+                    <Collection title="新片速递" url="/movie/comingSoonMovies">
                         {
                             this.loopAndCreateCellItem(this.state.newMovies)
                         }
