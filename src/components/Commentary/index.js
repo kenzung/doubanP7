@@ -1,8 +1,8 @@
 import React from 'react';
 import Rating from '../Rating';
 import './commentary.less';
-import commentaryLikeSvg from '../../assets/ic_like_gray.svg';
-import commentaryMoreSvg from '../../assets/more.svg';
+import CommentaryLikeSvg from '../../assets/ic_like_gray.svg';
+import CommentaryMoreSvg from '../../assets/more.svg';
 let Commentary = () => (
     <li className="commentary">
         <div className="commentary-left">
@@ -17,10 +17,10 @@ let Commentary = () => (
             <p className="commentary-right__content">这是一个评论，这是一个评论，这是一个评论，这是一个评论，这是一个评论，这是一个评论，这是一个评论</p>
             <div className="commentary-right__bottom">
                 <div className="right">
-                    <span className="cicon cicon-like" dangerouslySetInnerHTML={{__html: commentaryLikeSvg}} ></span>
+                    <span className="cicon cicon-like"><CommentaryLikeSvg/></span>
                     <span className="point">100</span>
                 </div>
-                <span className="cicon cicon-more" dangerouslySetInnerHTML={{__html: commentaryMoreSvg}} ></span>
+                <span className="cicon cicon-more"><CommentaryMoreSvg /></span>
             </div>
         </div>
     </li>

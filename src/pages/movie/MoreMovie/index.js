@@ -41,7 +41,7 @@ export default class MoreMovie extends React.Component{
         this.loadMore = this.loadMore.bind(this);
         this.pageStart = 0;
         //定义每次取的个数
-        this.perNum = this.props.perNum || 8;
+        this.perNum = 20;
         this.state = {
             movies:[],
             hasMore : true
@@ -75,7 +75,7 @@ export default class MoreMovie extends React.Component{
                         pageStart = {this.pageStart}
                         loadMore = {this.loadMore}
                         hasMore = {this.state.hasMore}
-                        loader={<Loading />}
+                        loader={<Loading key={0}/>}
                     >
                         {this.state.movies}
                     </InfiniteScroll>

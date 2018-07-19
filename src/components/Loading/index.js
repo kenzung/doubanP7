@@ -2,7 +2,7 @@ import React from 'react';
 import logo from '../../assets/loading_green.gif';
 
 let Loading = (props)=>(
-    <div>
+    <div className="loader">
         <img src={logo} alt="loading..."/>
     </div>
 );
