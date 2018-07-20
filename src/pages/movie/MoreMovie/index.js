@@ -58,7 +58,7 @@ export default class MoreMovie extends React.Component{
                             <MoreMovieCell score={item.rating.average} url={`/movie/subject/${item.id}`} title={item.title} image={item.images.small}/>
                         ))
                     ),
-                    hasMore: prevState.movies.length < json.total
+                    hasMore: prevState.movies.length < json.total && json.subjects.length > 0
                 }
             ));
         }).catch((error)=>{
