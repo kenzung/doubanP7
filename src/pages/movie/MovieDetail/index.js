@@ -87,7 +87,7 @@ export default class MovieDetail extends React.Component{
                         <Collection title="影人">
                             {
                                 movie.directors.length > 0 && movie.directors.map((director,index)=>(
-                                    <Cell url={`celebrity/${director.id}`} image={director.avatars && director.avatars.medium} title={director.name} key={index}>
+                                    <Cell url={`/movie/celebrity/${director.id}`} image={director.avatars && director.avatars.medium} title={director.name} key={index}>
                                         <CellText text="导演" style={{fontSize:12,color:'#000'}}/>
                                     </Cell>
                                 ))

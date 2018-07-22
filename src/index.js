@@ -10,6 +10,7 @@ import NotFound from './pages/NotFound';
 import ActorDetail from './pages/movie/ActorDetail';
 import MoreMovie from './pages/movie/MoreMovie';
 import Search from './pages/search';
+import EventDetail from './pages/home/children/EventDetail';
 import './common/style/common.css';
 
 let KZRoute = () => (
@@ -22,6 +23,7 @@ let KZRoute = () => (
                 <Route path="/movie/:type" component={MoreMovie}/>
                 <Route path="/movie" component={Movie} />
                 <Route path="/book" component={Book} />
+                <Route path="/event/:id" component={EventDetail}/>
                 <Route path="/search" component={Search} />
                 <Route component={NotFound}/>
             </Switch>

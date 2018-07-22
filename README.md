@@ -6,3 +6,6 @@
 3. 使用state管理技术，比如mobx、redux等技术
 
 **感谢[豆瓣](http://api.douban.com)提供的api支持**
+
+这里可以移步查看live demo
+[live demo](http://t.cn/RgBh3xe)

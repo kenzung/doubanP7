@@ -6,7 +6,7 @@ let ArticleListItem = ({activity}) => {
     newContent = newContent.slice(0,40);
     return (
         <li>
-            <Link to="#" className="kz-article-item">
+            <Link to={`/event/${activity.id}`} className="kz-article-item">
                 <div className="kz-article-item__content">
                     <div>
                         <h3>{activity.title}</h3>

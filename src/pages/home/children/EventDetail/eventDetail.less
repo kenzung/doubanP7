@@ -1,0 +1,49 @@
+.event{
+    > h2{
+        padding: 20px 15px;
+        margin-bottom: 0;
+        color: #000;
+        font-weight: 500;
+        background: #f9f9f9;
+    }
+    &-title{
+        &__info{
+            padding: 10px;
+        }
+        &__poster{
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            > div{
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100%;
+                height: 210px;
+                filter: blur(3px);
+                z-index: 0;
+            }
+            >img{
+                position: relative;
+                top: 10px;
+                height: 180px;
+                z-index: 2;
+            }
+        }
+    }
+    &-body{
+        width: 100%;
+        padding: 10px 15px 15px 15px;
+        line-height: 1.5;
+        box-sizing: border-box;
+    }
+}
+
+.middle > img{
+    width:100%;
+}

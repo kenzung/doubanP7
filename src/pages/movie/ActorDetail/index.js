@@ -48,7 +48,7 @@ export default class ActorDetail extends React.Component {
                         <Collection title="个人作品">
                             {
                                 actorDetail.works.map((movie,index)=>(
-                                    <Cell url={`/movie/${movie.subject.id}`} image={movie.subject.images.small} title={movie.subject.title}>
+                                    <Cell url={`/movie/subject/${movie.subject.id}`} image={movie.subject.images.small} title={movie.subject.title}>
                                         <CellRating score={movie.subject.rating.average}/>
                                     </Cell>
                                 ))
