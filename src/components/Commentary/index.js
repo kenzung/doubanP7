@@ -1,12 +1,13 @@
 import React from 'react';
 import Rating from '../Rating';
 import './commentary.less';
+import commentImg from '../../assets/avatar.jpg';
 import CommentaryLikeSvg from '../../assets/ic_like_gray.svg';
 import CommentaryMoreSvg from '../../assets/more.svg';
 let Commentary = () => (
     <li className="commentary">
         <div className="commentary-left">
-            <img/>
+            <img src={commentImg} alt="a commentary"/>
         </div>
         <div className="commentary-right">
             <div className="commentary-right__top1">
