@@ -1,35 +1,19 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
+import PropType from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchMovie } from '../../action/movieActionCreator';
+import { FETCH_THEATERS_MOVIES, FETCH_TOP_MOVIES, FETCH_COMINGSOON_MOVIES} from '../../action/types';
 import Collection from '../../components/Collection';
-import {CellRating,Cell} from '../../components/Collection/Cell';
+import { CellRating, Cell } from '../../components/Collection/Cell';
 import Sort from '../../components/Sort';
 import HotFlow from '../../components/HotFlow';
 import './movie.less';
 import '../../components/NavigationBar';
-import {movieSort,movieHotFlow} from '../../data/constData';
-import {inTheatersMovies,comingSoonMovies,topMovies} from '../../network/movie';
+import { movieSort, movieHotFlow } from '../../data/constData';
+import { inTheatersMovies, comingSoonMovies, topMovies } from '../../network/movie';
 import NavigationBar from '../../components/NavigationBar';
 
 class Movie extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            inTheatersMovies : [],
-            newMovies : [],
-            topMovies : []
-        }
-    }
-    fetchMovie(getMovie,stateName){
-        getMovie.then((res)=>{
-            return res.json();
-        }).then((json)=>{
-            this.setState({
-                [stateName] : json.subjects
-            });
-        }).catch((error)=>{
-            console.log(error);
-        });
-    }
-
     loopAndCreateCellItem(arr){
         return arr.map((item,index)=>{
             const {images:{small:image},rating:{average:score},title,id} = item;
@@ -42,10 +26,11 @@ class Movie extends Component{
     }
 
     componentDidMount() {
-        this.fetchMovie(inTheatersMovies(),'inTheatersMovies');
-        this.fetchMovie(topMovies(),'topMovies');
-        this.fetchMovie(comingSoonMovies(),'newMovies');
+        this.props.fetchMovie(inTheatersMovies(), FETCH_THEATERS_MOVIES);
+        this.props.fetchMovie(topMovies(), FETCH_TOP_MOVIES);
+        this.props.fetchMovie(comingSoonMovies(), FETCH_COMINGSOON_MOVIES);
     }
+
     render(){
         return (
             <React.Fragment>
@@ -53,17 +38,17 @@ class Movie extends Component{
                 <section className="content-body">
                     <Collection title="影院热映"  url="/movie/inTheatersMovies">
                         {
-                            this.loopAndCreateCellItem(this.state.inTheatersMovies)
+                            this.loopAndCreateCellItem(this.props.theatersMovies)
                         }
                     </Collection>
                     <Collection title="经典电影" url="/movie/topMovies">
                         {
-                            this.loopAndCreateCellItem(this.state.topMovies)
+                            this.loopAndCreateCellItem(this.props.topMovies)
                         }
                     </Collection>
                     <Collection title="新片速递" url="/movie/comingSoonMovies">
                         {
-                            this.loopAndCreateCellItem(this.state.newMovies)
+                            this.loopAndCreateCellItem(this.props.commingMovies)
                         }
                     </Collection>
                     <HotFlow title="发现好电影" hotFLows={movieHotFlow}/>
@@ -73,6 +58,21 @@ class Movie extends Component{
         )
     }
 }
-    
 
-export default Movie;
+Movie.propTypes = {
+    theatersMovies: PropType.array,
+    commingMovies: PropType.array,
+    topMovies: PropType.array,
+    fetchMovie: PropType.func,
+};
+    
+const mapStateToProps = (state) => {
+    const { theatersMovies, commingMovies, topMovies } = state.movie;
+    return {
+        theatersMovies,
+        commingMovies,
+        topMovies,
+    }
+};
+
+export default connect(mapStateToProps, { fetchMovie })(Movie);
