@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './articleListItem.less'
-let ArticleListItem = ({activity}) => {
+const ArticleListItem = ({activity}) => {
+    // console.log(activity);
     let newContent = activity.content.replace(/<.*?>/g, '');
     newContent = newContent.slice(0,40);
     return (

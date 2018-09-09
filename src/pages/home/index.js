@@ -1,6 +1,6 @@
 import React from 'react';
 import HotTab from './children/HotTab';
-import ArticleList from './children/ArticleList';
+import ArticleList from './children/Activities';
 import './home.less';
 
 import NavigationBar from '../../components/NavigationBar';
