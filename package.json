@@ -4,6 +4,8 @@
   "homepage": ".",
   "private": true,
   "dependencies": {
+    "@types/react": "^16.7.6",
+    "@types/react-dom": "^16.0.9",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dev-utils": "^5.0.1",
@@ -67,6 +69,7 @@
   "devDependencies": {
     "@storybook/react": "^3.4.8",
     "autoprefixer": "7.1.6",
+    "awesome-typescript-loader": "^5.2.1",
     "babel-core": "6.26.0",
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
@@ -99,9 +102,11 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react-svg-loader": "^2.1.0",
+    "source-map-loader": "^0.2.4",
     "style-loader": "0.19.0",
     "svg-inline-loader": "^0.8.0",
     "sw-precache-webpack-plugin": "0.11.4",
+    "typescript": "^3.1.6",
     "url-loader": "0.6.2",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
