@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import PropType from 'prop-types';
-import { connect } from 'react-redux';
-import { fetchMovie } from '../../action/movieActionCreator';
-import { FETCH_THEATERS_MOVIES, FETCH_TOP_MOVIES, FETCH_COMINGSOON_MOVIES} from '../../action/types';
 import Collection from '../../components/Collection';
 import { CellRating, Cell } from '../../components/Collection/Cell';
 import Sort from '../../components/Sort';
@@ -26,9 +23,9 @@ class Movie extends Component{
     }
 
     componentDidMount() {
-        this.props.fetchMovie(inTheatersMovies(), FETCH_THEATERS_MOVIES);
-        this.props.fetchMovie(topMovies(), FETCH_TOP_MOVIES);
-        this.props.fetchMovie(comingSoonMovies(), FETCH_COMINGSOON_MOVIES);
+        // this.props.fetchMovie(inTheatersMovies(), FETCH_THEATERS_MOVIES);
+        // this.props.fetchMovie(topMovies(), FETCH_TOP_MOVIES);
+        // this.props.fetchMovie(comingSoonMovies(), FETCH_COMINGSOON_MOVIES);
     }
 
     render(){
@@ -65,14 +62,5 @@ Movie.propTypes = {
     topMovies: PropType.array,
     fetchMovie: PropType.func,
 };
-    
-const mapStateToProps = (state) => {
-    const { theatersMovies, commingMovies, topMovies } = state.movie;
-    return {
-        theatersMovies,
-        commingMovies,
-        topMovies,
-    }
-};
 
-export default connect(mapStateToProps, { fetchMovie })(Movie);
+export default Movie;
