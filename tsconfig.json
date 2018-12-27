@@ -6,7 +6,12 @@
     "jsx": "react",
     "allowJs": true,
     "strictNullChecks": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "rootDir": "src",
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
   },
   "exclude": [
     "node_modules",
@@ -16,8 +21,5 @@
     "public",
     ".storybook",
     "src/registerServiceWorker.js"
-  ],
-  "include": [
-    "./src/"
   ]
 }

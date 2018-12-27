@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import HotTab from './children/HotTab';
+import { NavigationBar } from '../../components/NavigationBar';
 import ArticleList from './children/Activities';
 import './home.less';
 
-import NavigationBar from '../../components/NavigationBar';
-let Home = ()=>(
+const Home = ()=>(
     <React.Fragment>
         <NavigationBar />
         <div className="content-body">
             <HotTab />
-            <ArticleList />
+            {/* <ArticleList /> */}
         </div>
     </React.Fragment>
 )
