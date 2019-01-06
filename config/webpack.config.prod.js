@@ -154,10 +154,6 @@ module.exports = {
               compact: true,
             },
           },
-          {
-            test: /\.tsx?$/,
-            loader: 'awesome-typescript-loader',
-          },
           // The notation here is somewhat confusing.
           // "postcss" loader applies autoprefixer to our CSS.
           // "css" loader resolves paths in CSS and adds assets as dependencies.
