@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-import HotTab from './children/HotTab';
+import HotTab from './components/HotTab';
 import NavigationBar from '../../components/NavigationBar';
-import ArticleList from './children/Activities';
+import Events from './components/Events';
 import './home.less';
 
 const Home = () => (
@@ -9,7 +9,7 @@ const Home = () => (
     <NavigationBar />
     <div className="content-body">
       <HotTab />
-      <ArticleList />
+      <Events />
     </div>
   </Fragment>
 );
